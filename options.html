@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>模型设置 · 译页</title>
+  <link rel="stylesheet" href="ui.css">
+  <script type="module" src="options.js"></script>
+</head>
+<body class="settings-page">
+  <main class="settings-shell">
+    <header class="brand">
+      <img src="icons/icon48.png" width="40" height="40" alt="">
+      <span>译页</span>
+    </header>
+    <h1>模型设置</h1>
+    <p class="intro">连接兼容 OpenAI Chat Completions 的模型，将网页英文翻译成简体中文。</p>
+    <form id="settings" class="panel" autocomplete="off">
+      <label for="base-url">Base URL</label>
+      <input id="base-url" name="base-url" type="url" placeholder="https://api.openai.com/v1" aria-describedby="url-help" spellcheck="false" required>
+      <p id="url-help" class="hint">包含服务所需的版本路径，例如 <code>/v1</code>。也可填写完整的 <code>/chat/completions</code> 地址。</p>
+
+      <label for="api-key">API Key</label>
+      <div class="input-row">
+        <input id="api-key" name="api-key" type="password" autocomplete="off" spellcheck="false" required>
+        <button id="toggle-key" type="button" class="secondary">显示</button>
+      </div>
+
+      <label for="model">模型名称</label>
+      <input id="model" name="model" type="text" placeholder="gpt-4o-mini" spellcheck="false" required>
+      <div class="buttons">
+        <button id="save" type="submit" class="primary">保存设置</button>
+        <button id="test" type="button" class="secondary">测试连接</button>
+      </div>
+      <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+    </form>
+    <p class="privacy">设置保存在当前浏览器。翻译时，网页中的待翻译文本会发送到你配置的模型接口。</p>
+  </main>
+</body>
+</html>
